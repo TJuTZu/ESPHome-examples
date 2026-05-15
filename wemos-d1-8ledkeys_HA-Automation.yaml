@@ -1,0 +1,106 @@
+alias: TM1638 Buttons → Control All LEDs
+description: TM1638 Buttons → Control All LEDs
+triggers:
+  - entity_id:
+      - binary_sensor.wemos_d1_8ledkeys_tm1638_button_1
+      - binary_sensor.wemos_d1_8ledkeys_tm1638_button_2
+      - binary_sensor.wemos_d1_8ledkeys_tm1638_button_3
+      - binary_sensor.wemos_d1_8ledkeys_tm1638_button_4
+      - binary_sensor.wemos_d1_8ledkeys_tm1638_button_5
+      - binary_sensor.wemos_d1_8ledkeys_tm1638_button_6
+      - binary_sensor.wemos_d1_8ledkeys_tm1638_button_7
+      - binary_sensor.wemos_d1_8ledkeys_tm1638_button_8
+    to:
+      - "on"
+    trigger: state
+actions:
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: binary_sensor.wemos_d1_8ledkeys_tm1638_button_1
+            state:
+              - "on"
+        sequence:
+          - action: light.toggle
+            metadata: {}
+            target:
+              entity_id: light.wemos_d1_8ledkeys_led_1
+            data: {}
+      - conditions:
+          - condition: state
+            entity_id: binary_sensor.wemos_d1_8ledkeys_tm1638_button_2
+            state:
+              - "on"
+        sequence:
+          - action: light.toggle
+            metadata: {}
+            target:
+              entity_id: light.wemos_d1_8ledkeys_led_2
+            data: {}
+      - conditions:
+          - condition: state
+            entity_id: binary_sensor.wemos_d1_8ledkeys_tm1638_button_3
+            state:
+              - "on"
+        sequence:
+          - action: light.toggle
+            metadata: {}
+            target:
+              entity_id: light.wemos_d1_8ledkeys_led_3
+            data: {}
+      - conditions:
+          - condition: state
+            entity_id: binary_sensor.wemos_d1_8ledkeys_tm1638_button_4
+            state:
+              - "on"
+        sequence:
+          - action: light.toggle
+            metadata: {}
+            target:
+              entity_id: light.wemos_d1_8ledkeys_led_4
+            data: {}
+      - conditions:
+          - condition: state
+            entity_id: binary_sensor.wemos_d1_8ledkeys_tm1638_button_5
+            state:
+              - "on"
+        sequence:
+          - action: light.toggle
+            metadata: {}
+            target:
+              entity_id: light.wemos_d1_8ledkeys_led_5
+            data: {}
+      - conditions:
+          - condition: state
+            entity_id: binary_sensor.wemos_d1_8ledkeys_tm1638_button_6
+            state:
+              - "on"
+        sequence:
+          - action: light.toggle
+            metadata: {}
+            target:
+              entity_id: light.wemos_d1_8ledkeys_led_6
+            data: {}
+      - conditions:
+          - condition: state
+            entity_id: binary_sensor.wemos_d1_8ledkeys_tm1638_button_7
+            state:
+              - "on"
+        sequence:
+          - action: light.toggle
+            metadata: {}
+            target:
+              entity_id: light.wemos_d1_8ledkeys_led_7
+            data: {}
+      - conditions:
+          - condition: state
+            entity_id: binary_sensor.wemos_d1_8ledkeys_tm1638_button_8
+            state:
+              - "on"
+        sequence:
+          - action: light.toggle
+            metadata: {}
+            target:
+              entity_id: light.wemos_d1_8ledkeys_led_8
+            data: {}
+mode: single
