@@ -54,6 +54,7 @@ LEDs can be controlled from Home Assistant or automations.
 
 ### 8 leds & keys
 - wemos-d1-8ledkeys-tapo.yaml
+- wemos-d1-8ledkeys_HA-Automation.yaml
 
  Show time
 - Control TP-Link Tapo P115 plugs connected to Home assistant
