@@ -1,3 +1,9 @@
+# This ESPHome configuration turns a Wemos D1 Mini with a TM1638 module
+# into an 8‑button, 8‑LED Home Assistant control panel with a clock display.
+# Each button toggles a specific smart plug, and each LED shows its ON/OFF state.
+# The display normally shows the current time from Home Assistant, and falls back
+# to a simple pattern when time is unavailable. Buttons also trigger a brief
+# digit animation on the display.
 esphome:
   name: wemos-d1-8ledkeys
   friendly_name: wemos-d1-8ledkeys
