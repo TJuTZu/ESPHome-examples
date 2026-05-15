@@ -37,7 +37,7 @@ ESPHome configuration for a Wemos D1 Mini-based alarm control keypad with 4x4 ma
 
 ## 8 leds & keys
 
-- wemos-d1-8ledkeys.yaml
+- wemos-d1-8ledkeys-tapo.yaml
 
 ![TM1638](https://next.esphome.io/components/display/images/tm1638-full.jpg)
 
