@@ -1,12 +1,12 @@
 # ---------------------------------------------------------
-# wemos-d1-8ledkeys v1.0
+# wemos-d1-8ledkeys v1.4
 # ---------------------------------------------------------
 # This ESPHome configuration turns a Wemos D1 Mini with a
 # TM1638 module into a simple 8‑button, 8‑LED control panel.
-# The display shows the current time when Home Assistant time
-# is available, and a wave animation until connection is ready.
-# Buttons only publish their state.
-# LEDs can be controlled from Home Assistant or automations.
+# All LEDs are exposed to Home Assistant as controllable
+# light entities. Buttons publish their state for automations.
+# The display shows the current time when HA time is available,
+# and a wave animation until Home Assistant is connected.
 # ---------------------------------------------------------
 
 esphome:
@@ -77,7 +77,8 @@ display:
     }
 
     static bool i = 0;
-    static int wave_phase = 0;
+    static int pos = 0;
+    static int dir = 1;  // 1 = forward, -1 = backward
 
     // If time is available → show clock
     if (id(homeassistant_time).now().is_valid()) {
@@ -87,61 +88,79 @@ display:
         it.strftime("%H %M %S", id(homeassistant_time).now());
     }
 
-    // Otherwise → ASCII wave animation
-    else {
-      const char base[9] = "AGDGAGDG";
-      char buf[9];
 
+    // Otherwise → ping‑pong "-" animation
+    else {
+      char buf[9];
       for (int x = 0; x < 8; x++) {
-        int idx = (x + wave_phase) % 8;
-        buf[x] = base[idx];
+        buf[x] = (x == pos) ? '-' : ' ';
       }
       buf[8] = 0;
 
       it.printf("%s", buf);
 
-      wave_phase++;
-      if (wave_phase >= 8)
-        wave_phase = 0;
+      // Move the wave
+      pos += dir;
+      if (pos >= 7) dir = -1;
+      if (pos <= 0) dir = 1;
     }
 
     i = !i;
 
 # -------------------
-# LED Outputs
+# LED Outputs (exposed to HA)
 # -------------------
 output:
   - platform: tm1638
     id: TM1638Led1
     led: 0
-
   - platform: tm1638
     id: TM1638Led2
     led: 1
-
   - platform: tm1638
     id: TM1638Led3
     led: 2
-
   - platform: tm1638
     id: TM1638Led4
     led: 3
-
   - platform: tm1638
     id: TM1638Led5
     led: 4
-
   - platform: tm1638
     id: TM1638Led6
     led: 5
-
   - platform: tm1638
     id: TM1638Led7
     led: 6
-
   - platform: tm1638
     id: TM1638Led8
     led: 7
+
+light:
+  - platform: binary
+    name: "LED 1"
+    output: TM1638Led1
+  - platform: binary
+    name: "LED 2"
+    output: TM1638Led2
+  - platform: binary
+    name: "LED 3"
+    output: TM1638Led3
+  - platform: binary
+    name: "LED 4"
+    output: TM1638Led4
+  - platform: binary
+    name: "LED 5"
+    output: TM1638Led5
+  - platform: binary
+    name: "LED 6"
+    output: TM1638Led6
+  - platform: binary
+    name: "LED 7"
+    output: TM1638Led7
+  - platform: binary
+    name: "LED 8"
+    output: TM1638Led8
 
 # -------------------
 # TM1638 Buttons
