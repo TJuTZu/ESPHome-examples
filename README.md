@@ -5,7 +5,7 @@ These might give someone ideas how to make their own device configuratios
 ## ESP32-C3 Button with Led
 - esp32c3-button-led.yaml (ESPHome)
 - esp32c3-button-led-automation.yaml (automation example)
-<img width="200" alt="image" src="https://github.com/user-attachments/assets/ad484962-e083-4260-9f14-4ecdda3b1a9a" />
+<img width="200" alt="image" src="images/ESP32-C3-button-with-led.png" />
 
 ESPHome configuration for an ESP32-C3 microcontroller with a single WS2812B addressable RGB LED controlled via GPIO push button. Features:
 
@@ -19,7 +19,8 @@ ESPHome configuration for an ESP32-C3 microcontroller with a single WS2812B addr
 
 - wemos-d1-keypad.yaml
 
-![Matrix keypad](https://next.esphome.io/images/matrix_keypad.jpg)
+![Matrix keypad](https://github.com/TJuTZu/ESPHome-examples/blob/main/images/4x4%20Matrix%20Keypad.jpg)
+![D1 Mini](https://github.com/TJuTZu/ESPHome-examples/blob/main/images/D1%20mini.jpg)
 
 [Wemos D1 mini](https://www.wemos.cc/en/latest/d1/d1_mini.html) board connected to 4x4 [matrix keypad](https://next.esphome.io/components/matrix_keypad/) to control alarm
 
@@ -37,7 +38,7 @@ ESPHome configuration for a Wemos D1 Mini-based alarm control keypad with 4x4 ma
 
 ## 8 leds & keys
 
-![TM1638](https://next.esphome.io/components/display/images/tm1638-full.jpg)
+![TM1638](https://github.com/TJuTZu/ESPHome-examples/blob/main/images/LED%26KEY.png)
 
 [Wemos D1 mini](https://www.wemos.cc/en/latest/d1/d1_mini.html) board connected to [TM1638 7 Segment Display Keypad & LED Module](https://next.esphome.io/components/display/tm1638/) 
 
