@@ -37,12 +37,24 @@ ESPHome configuration for a Wemos D1 Mini-based alarm control keypad with 4x4 ma
 
 ## 8 leds & keys
 
-- wemos-d1-8ledkeys-tapo.yaml
-
 ![TM1638](https://next.esphome.io/components/display/images/tm1638-full.jpg)
 
 [Wemos D1 mini](https://www.wemos.cc/en/latest/d1/d1_mini.html) board connected to [TM1638 7 Segment Display Keypad & LED Module](https://next.esphome.io/components/display/tm1638/) 
-- Show time
+
+
+### 8 leds & keys
+- wemos-d1-8ledkeys.yaml
+
+This ESPHome configuration turns a Wemos D1 Mini with a
+TM1638 module into a simple 8‑button, 8‑LED control panel.
+The display shows the current time when Home Assistant time is available, and a wave animation until connection is ready.
+Buttons only publish their state.
+LEDs can be controlled from Home Assistant or automations.
+
+### 8 leds & keys
+- wemos-d1-8ledkeys-tapo.yaml
+
+ Show time
 - Control TP-Link Tapo P115 plugs connected to Home assistant
 
 Smart Home Plug Control Panel with TM1638 Display & 8 Buttons
